@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>二维码生成</title>
-    <meta name="viewport" content="width=375, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="viewport" content="width=375"/>
 </head>
 <script src="qrcode.min.js"></script>
 <body>
 <h3>支持该库的浏览器有：IE6~10, Chrome, Firefox, Safari, Opera, Mobile Safari, Android, Windows Mobile等。</h3>
-<input id="text" value="https://www.baidu.com" style="display: inline-block;width:300px"/>
+<input id="text" value="https://www.baidu.com?v=1" style="display: inline-block;width:300px"/>
 <span id="gen" onclick="makeCode()">&nbsp;&nbsp;&nbsp;&nbsp;生成</span><br/>
-
-<div id="qrcode" style="width:300px; height:300px; margin-top:30px;" hidden></div>
+<div id="qrcode" style="width:300px; height:300px; margin-top:30px;"></div>
 <img id="qrcodeForSave" width="300" height="300" style="display: none;margin-top: 30px"/>
 </body>
 <script>
@@ -24,10 +23,6 @@
         var text = document.getElementById("text");
         if (text.value) {
             qrcode.makeCode(text.value);
-            setTimeout(function () {
-                document.getElementById("qrcodeForSave").style.display = 'inline-block';
-                document.getElementById("qrcodeForSave").src = document.getElementById("qrcode").children[1].src;
-            }, 300)
         }
     }
 </script>
